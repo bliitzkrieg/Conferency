@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  conferencydata:
+    image: conferencydata
+    build:
+      context: ./../ConferencyData
+      dockerfile: Dockerfile

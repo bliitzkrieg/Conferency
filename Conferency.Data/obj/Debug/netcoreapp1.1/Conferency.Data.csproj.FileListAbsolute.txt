@@ -1,0 +1,11 @@
+C:\Users\Luca\dev\conferency\Conferency.Data\bin\Debug\netcoreapp1.1\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Luca\dev\conferency\Conferency.Data\bin\Debug\netcoreapp1.1\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Luca\dev\conferency\Conferency.Data\bin\Debug\netcoreapp1.1\Conferency.Data.deps.json
+C:\Users\Luca\dev\conferency\Conferency.Data\bin\Debug\netcoreapp1.1\Conferency.Data.dll
+C:\Users\Luca\dev\conferency\Conferency.Data\bin\Debug\netcoreapp1.1\Conferency.Data.pdb
+C:\Users\Luca\dev\conferency\Conferency.Data\bin\Debug\netcoreapp1.1\Conferency.Domain.dll
+C:\Users\Luca\dev\conferency\Conferency.Data\bin\Debug\netcoreapp1.1\Conferency.Domain.pdb
+C:\Users\Luca\dev\conferency\Conferency.Data\obj\Debug\netcoreapp1.1\Conferency.Data.csprojResolveAssemblyReference.cache
+C:\Users\Luca\dev\conferency\Conferency.Data\obj\Debug\netcoreapp1.1\Conferency.Data.AssemblyInfo.cs
+C:\Users\Luca\dev\conferency\Conferency.Data\obj\Debug\netcoreapp1.1\Conferency.Data.dll
+C:\Users\Luca\dev\conferency\Conferency.Data\obj\Debug\netcoreapp1.1\Conferency.Data.pdb
