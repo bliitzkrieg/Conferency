@@ -24,6 +24,10 @@
     <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
     <Content Remove="ClientApp\**" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Conferency.Data\Conferency.Data.csproj" />
+    <ProjectReference Include="..\Conferency.Domain\Conferency.Domain.csproj" />
+  </ItemGroup>
   <Target Name="RunWebpack" AfterTargets="ComputeFilesToPublish">
     <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
     <Exec Command="npm install" />

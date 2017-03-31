@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Conferency.Domain
 {
-    public class Speaker
+    public class Speaker : IAuditable
     {
         public int Id { get; set; }
         public string FullName { get; set; }
