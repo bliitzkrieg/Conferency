@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Conferency.Data;
+using Newtonsoft.Json;
 
 namespace Conferency
 {
@@ -33,6 +35,8 @@ namespace Conferency
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ConferencyContext>(ServiceLifetime.Scoped);
+            services.AddScoped<IConferenceRepository, ConferenceRepository>();
 
             services.AddCors();
 
@@ -42,9 +46,13 @@ namespace Conferency
                 // SSL Support
                 if (!_env.IsProduction())
                 {
-                    opt.SslPort = 44388;
+                    // opt.SslPort = 44388;
                 }
-                opt.Filters.Add(new RequireHttpsAttribute());
+                // opt.Filters.Add(new RequireHttpsAttribute());
+            })
+            .AddJsonOptions(opt =>
+            {
+                opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             });
         }
 

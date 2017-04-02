@@ -8,9 +8,10 @@ using Conferency.Data;
 namespace Conferency.Data.Migrations
 {
     [DbContext(typeof(ConferencyContext))]
-    partial class ConferencyContextModelSnapshot : ModelSnapshot
+    [Migration("20170402071823_AddedContext")]
+    partial class AddedContext
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.0-rtm-22752")
@@ -93,7 +94,7 @@ namespace Conferency.Data.Migrations
 
                     b.HasIndex("TalkId");
 
-                    b.ToTable("SpeakerTalks");
+                    b.ToTable("SpeakerTalk");
                 });
 
             modelBuilder.Entity("Conferency.Domain.Talk", b =>
@@ -104,6 +105,8 @@ namespace Conferency.Data.Migrations
                     b.Property<int>("ConferenceId");
 
                     b.Property<DateTime>("CreatedAt");
+
+                    b.Property<string>("Location");
 
                     b.Property<DateTime>("ModifiedAt");
 

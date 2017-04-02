@@ -9,6 +9,7 @@ namespace Conferency.Domain
         public string Name { get; set; }
         public string Location { get; set; }
         public string Website { get; set; }
+        public string Photo { get; set; }
         public List<ConferenceSpeaker> ConferenceSpeakers { get; set; }
         public List<Talk> Talks { get; set; }
         public DateTime Hosted { get; set; }

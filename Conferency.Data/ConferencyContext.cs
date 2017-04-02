@@ -7,10 +7,11 @@ namespace Conferency.Data
 {
     public class ConferencyContext: DbContext
     {
-
         public DbSet<Talk> Talks { get; set; }
         public DbSet<Speaker> Speakers { get; set; }
         public DbSet<Conference> Conferences { get; set; }
+        public DbSet<ConferenceSpeaker> ConferenceSpeakers { get; set; }
+        public DbSet<SpeakerTalk> SpeakerTalks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -40,7 +41,7 @@ namespace Conferency.Data
 
         private void addTimestamps(EntityEntry<IAuditable> entry)
         {
-            DateTime now = DateTime.Now;
+            DateTime now = DateTime.UtcNow;
             if (entry.State == EntityState.Added)
             {
                 entry.Property("CreatedAt").CurrentValue = now;

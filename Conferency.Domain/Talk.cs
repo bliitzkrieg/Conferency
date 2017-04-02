@@ -7,7 +7,6 @@ namespace Conferency.Domain
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Location { get; set; }
         public string Url { get; set; }
         public List<SpeakerTalk> SpeakerTalks { get; set; }
         public int ConferenceId { get; set; }
