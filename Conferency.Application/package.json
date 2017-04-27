@@ -1,6 +1,9 @@
 {
   "name": "Conferency",
   "version": "1.0.0",
+  "scripts": {
+    "vendor": "webpack --config webpack.config.vendor.js"
+  },
   "dependencies": {
     "@types/history": "^2.0.0",
     "@types/moment": "^2.13.0",
@@ -25,10 +28,10 @@
     "event-source-polyfill": "^0.0.7",
     "extract-text-webpack-plugin": "^2.0.0-rc",
     "file-loader": "^0.8.5",
-    "jquery": "^2.2.1",
     "json-loader": "^0.5.4",
     "moment": "^2.18.1",
     "node-noop": "^1.0.0",
+    "normalize.css": "^6.0.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",

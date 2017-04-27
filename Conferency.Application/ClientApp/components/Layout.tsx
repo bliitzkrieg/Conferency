@@ -9,7 +9,7 @@ export class Layout extends React.Component<LayoutProps, void> {
     public render() {
         return <div className='container'>
                 <header>
-                    <div className='brand'>Conferency</div>
+                    <div className='brand'><a href="/">Conferency</a></div>
                     <NavMenu />
                 </header>
                 <main>

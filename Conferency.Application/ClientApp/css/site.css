@@ -1,8 +1,39 @@
+/*
+   https://color.adobe.com/create/color-wheel/?base=2&rule=Monochromatic&selected=2&name=My%20Color%20Theme&mode=hex&rgbvalues=0.08972996114875081,0.17654376389256687,0.5,0.26760649087221094,0.2761557036607863,0.32745098039215687,0.11764705882352941,0.13333333333333333,0.22745098039215686,0.4310547667342799,0.44482565439970967,0.5274509803921569,0.42799188640973623,0.48505747126444554,0.8274509803921568&swatchOrder=0,1,2,3,4
+*/
+
+html {
+    font-family: 'Lato', sans-serif;
+    background: #1e223a;
+    color: #d3d1ea;
+}
+
+a {
+    color: #647bff;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+a:hover {
+    color: #a8c6ff;
+}
+
+h1, h2, h3 {
+    color: white;
+}
+
+.container {
+    max-width: 60vw;
+    min-width: 60vw;
+    margin: 0 auto;
+}
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 50px;
+    font-size: 18px;
 }
 
 nav {
@@ -28,7 +59,7 @@ nav a {
     display: flex;
     flex-direction: column;
     height: 250px;
-    width: calc(33.33% - 20px);
+    width: calc(33.33% - 22px);
     margin: 10px;
     border-radius: 5px;
     overflow: hidden;

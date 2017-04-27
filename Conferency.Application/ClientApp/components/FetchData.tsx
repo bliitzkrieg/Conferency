@@ -8,7 +8,7 @@ import * as WeatherForecastsState from '../store/WeatherForecasts';
 type WeatherForecastProps =
     WeatherForecastsState.WeatherForecastsState     // ... state we've requested from the Redux store
     & typeof WeatherForecastsState.actionCreators   // ... plus action creators we've requested
-    & { params: { startDateIndex: string } };       // ... plus incoming routing parameters
+    & { params: { startDateIndex: string }, requestWeatherForecasts: Function };       // ... plus incoming routing parameters
 
 class FetchData extends React.Component<WeatherForecastProps, void> {
     componentWillMount() {

@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
-import createMemoryHistory from 'history/lib/createMemoryHistory';
 import { createServerRenderer, RenderResult } from 'aspnet-prerendering';
 import routes from './routes';
 import configureStore from './configureStore';
@@ -11,7 +10,7 @@ export default createServerRenderer(params => {
     return new Promise<RenderResult>((resolve, reject) => {
         // Match the incoming request against the list of client-side routes
         const store = configureStore();
-        match({ routes, location: params.location }, (error, redirectLocation, renderProps: any) => {
+        match({ routes, location: params.location }, (error, redirectLocation: any, renderProps: any) => {
             if (error) {
                 throw error;
             }

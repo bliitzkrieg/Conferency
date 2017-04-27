@@ -12,7 +12,7 @@ export class ConferenceItem extends React.Component<ConferenceProps, void> {
         const url = `/conferences/${ this.props.conference.id }`;
         const style = {
             backgroundImage: `url(${ this.props.conference.photo || "http://placehold.it/350x150" })`
-        }
+        };
         const date = moment(this.props.conference.hosted).format("dddd, MMMM Do YYYY");
 
         return <div className="conference-item">

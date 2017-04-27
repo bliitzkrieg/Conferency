@@ -1,5 +1,4 @@
 ﻿import * as React from 'react';
-import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { ApplicationState }  from '../store';
 import { ConferenceItem } from './ConferenceItem';
@@ -8,7 +7,8 @@ import * as ConferencesState from '../store/Conferences';
 // At runtime, Redux will merge together...
 type ConferenceProps =
     ConferencesState.ConferencesState     // ... state we've requested from the Redux store
-    & typeof ConferencesState.actionCreators;
+    & typeof ConferencesState.actionCreators
+    & { requestConferences: Function; }
 
 class Conferences extends React.Component<ConferenceProps, void> {
 

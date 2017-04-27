@@ -5,16 +5,16 @@ export class NavMenu extends React.Component<void, void> {
     public render() {
         return <nav>
             <Link to={ '/' } activeClassName='active'>
-                <span className='glyphicon glyphicon-home'></span> Home
+                Home
              </Link>
              <Link to={ '/counter' } activeClassName='active'>
-                <span className='glyphicon glyphicon-education'></span> Talks
+                Talks
              </Link>
              <Link to={ '/fetchdata' } activeClassName='active'>
-                <span className='glyphicon glyphicon-th-list'></span> Speakers
+                Speakers
             </Link>
              <Link to={ '/conferences' } activeClassName='active'>
-                <span className='glyphicon glyphicon-th-list'></span> Conferences
+                Conferences
             </Link>
         </nav>
     }

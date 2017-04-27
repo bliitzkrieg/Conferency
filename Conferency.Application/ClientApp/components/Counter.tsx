@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { ApplicationState }  from '../store';
 import * as CounterStore from '../store/Counter';
-import * as WeatherForecasts from '../store/WeatherForecasts';
 
-type CounterProps = CounterStore.CounterState & typeof CounterStore.actionCreators;
+type CounterProps = CounterStore.CounterState
+    & typeof CounterStore.actionCreators
+    & { increment: Function; };
 
 class Counter extends React.Component<CounterProps, void> {
     public render() {
