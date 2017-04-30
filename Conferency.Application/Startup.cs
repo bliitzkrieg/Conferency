@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Conferency.Data;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Mvc.Versioning;
 
 namespace Conferency
 {
@@ -37,6 +38,14 @@ namespace Conferency
         {
             services.AddDbContext<ConferencyContext>(ServiceLifetime.Scoped);
             services.AddScoped<IConferenceRepository, ConferenceRepository>();
+
+            services.AddApiVersioning(cfg =>
+            {
+                cfg.DefaultApiVersion = new ApiVersion(1, 0);
+                cfg.AssumeDefaultVersionWhenUnspecified = true;
+                cfg.ReportApiVersions = true;
+                cfg.ApiVersionReader = new HeaderApiVersionReader("X-Conferency-Version");
+            });
 
             services.AddCors();
 
