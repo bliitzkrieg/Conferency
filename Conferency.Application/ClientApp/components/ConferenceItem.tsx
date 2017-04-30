@@ -1,5 +1,5 @@
 ﻿import * as React from 'react';
-import { Conference } from '../store/Conferences';
+import { Conference } from '../store/Conference';
 import * as moment from 'moment';
 
 export interface ConferenceProps {
@@ -9,7 +9,7 @@ export interface ConferenceProps {
 export class ConferenceItem extends React.Component<ConferenceProps, void> {
 
     public render() {
-        const url = `/conferences/${ this.props.conference.id }`;
+        const url = `/conference/some-slug/${ this.props.conference.id }`;
         const style = {
             backgroundImage: `url(${ this.props.conference.photo || "http://placehold.it/350x150" })`
         };

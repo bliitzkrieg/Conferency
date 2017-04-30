@@ -5,6 +5,7 @@ import Home from './components/Home';
 import FetchData from './components/FetchData';
 import Counter from './components/Counter';
 import Conferences from './components/Conferences';
+import Conference from './components/Conference';
 
 export default <Route component={ Layout }>
     <Route path='/' components={{ body: Home }} />
@@ -13,6 +14,7 @@ export default <Route component={ Layout }>
         <Route path='(:startDateIndex)' /> { /* Optional route segment that does not affect NavMenu highlighting */ }
     </Route>
     <Route path='/conferences' components={{ body: Conferences }} />
+    <Route path='/conference/:slug/:id' components={{ body: Conference }} />
 </Route>;
 
 // Enable Hot Module Replacement (HMR)

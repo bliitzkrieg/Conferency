@@ -1,11 +1,13 @@
 import * as WeatherForecasts from './WeatherForecasts';
 import * as Counter from './Counter';
+import * as Conference from './Conference';
 import * as Conferences from './Conferences';
 
 // The top-level state object
 export interface ApplicationState {
     counter: Counter.CounterState,
     weatherForecasts: WeatherForecasts.WeatherForecastsState,
+    conference: Conference.ConferenceState,
     conferences: Conferences.ConferencesState
 }
 
@@ -15,7 +17,8 @@ export interface ApplicationState {
 export const reducers = {
     counter: Counter.reducer,
     weatherForecasts: WeatherForecasts.reducer,
-    conferences: Conferences.reducer
+    conferences: Conferences.reducer,
+    conference: Conference.reducer
 };
 
 // This type can be used as a hint on action creators so that its 'dispatch' and 'getState' params are

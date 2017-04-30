@@ -3,6 +3,7 @@ using Conferency.Domain;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Conferency.Data
 {
@@ -38,6 +39,11 @@ namespace Conferency.Data
                 .ThenInclude(s => s.Speaker)
                 .Where(c => c.Id == id)
                 .FirstOrDefault();
+        }
+
+        public async Task<bool> SaveAllAsync()
+        {
+            return (await _context.SaveChangesAsync()) > 0;
         }
     }
 }
