@@ -1,60 +1,48 @@
 ﻿import { fetch, addTask } from 'domain-task';
 import { Action, Reducer, ActionCreator } from 'redux';
 import { AppThunkAction } from './';
+import { Talk } from './Talk';
 
 // -----------------
 // STATE - This defines the type of data maintained in the Redux store.
 
-export interface ConferenceState {
+export interface TalksState {
     isLoading: boolean;
-    conference: Conference;
-}
-
-export interface Conference {
-    id: number;
-    name: string;
-    location: string;
-    website: string;
-    photo: string;
-    conferenceSpeakers: any;
-    talks: any;
-    hosted: string;
-    modifiedAt: string;
-    createdAt: string;
+    talks: Talk[];
 }
 
 // -----------------
 // ACTIONS - These are serializable (hence replayable) descriptions of state transitions.
 // They do not themselves have any side-effects; they just describe something that is going to happen.
 
-interface RequestConferenceAction {
-    type: 'REQUEST_CONFERENCE'
+interface RequestTalksAction {
+    type: 'REQUEST_TALKS'
 }
 
-interface ReceiveConferenceAction {
-    type: 'RECEIVE_CONFERENCE',
-    conference: Conference
+interface ReceiveTalksAction {
+    type: 'RECEIVE_TALKS',
+    talks: Talk[]
 }
 
 // Declare a 'discriminated union' type. This guarantees that all references to 'type' properties contain one of the
 // declared type strings (and not any other arbitrary string).
-type KnownAction = RequestConferenceAction | ReceiveConferenceAction;
+type KnownAction = RequestTalksAction | ReceiveTalksAction;
 
 // ----------------
 // ACTION CREATORS - These are functions exposed to UI components that will trigger a state transition.
 // They don't directly mutate state, but they can have external side-effects (such as loading data).
 
 export const actionCreators = {
-    requestConference: (id: Number): AppThunkAction<KnownAction> => (dispatch, getState) => {
-        if (!getState().conference.conference) {
-            let fetchTask = fetch(`/api/Conferences/${ id }`)
-                .then(response => response.json() as Promise<Conference>)
+    requestTalks: (): AppThunkAction<KnownAction> => (dispatch, getState) => {
+        if (getState().talks.talks.length === 0) {
+            let fetchTask = fetch(`/api/Talks`)
+                .then(response => response.json() as Promise<Talk[]>)
                 .then(data => {
-                    dispatch({ type: 'RECEIVE_CONFERENCE', conference: data });
+                    dispatch({ type: 'RECEIVE_TALKS', talks: data });
                 });
 
             addTask(fetchTask); // Ensure server-side prerendering waits for this to complete
-            dispatch({ type: 'REQUEST_CONFERENCE' });
+            dispatch({ type: 'REQUEST_TALKS' });    
         }
     }
 };
@@ -62,18 +50,18 @@ export const actionCreators = {
 // ----------------
 // REDUCER - For a given state and action, returns the new state. To support time travel, this must not mutate the old state.
 
-const unloadedState: ConferenceState = { conference: undefined, isLoading: false };
+const unloadedState: TalksState = { talks: [], isLoading: false };
 
-export const reducer: Reducer<ConferenceState> = (state: ConferenceState, action: KnownAction) => {
+export const reducer: Reducer<TalksState> = (state: TalksState, action: KnownAction) => {
     switch (action.type) {
-        case 'REQUEST_CONFERENCE':
+        case 'REQUEST_TALKS':
             return {
-                conference: state.conference,
+                talks: state.talks,
                 isLoading: true
             };
-        case 'RECEIVE_CONFERENCE':
+        case 'RECEIVE_TALKS':
             return {
-                conference: action.conference,
+                talks: action.talks,
                 isLoading: false
             };
         default:

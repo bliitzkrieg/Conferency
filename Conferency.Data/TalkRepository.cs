@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Conferency.Data
 {
-    public class ConferenceRepository : IConferenceRepository
+    public class TalkRepository : ITalkRepository
     {
         private ConferencyContext _context;
 
-        public ConferenceRepository(ConferencyContext context)
+        public TalkRepository(ConferencyContext context)
         {
             _context = context;
         }
@@ -21,22 +21,18 @@ namespace Conferency.Data
             _context.Add(entity);
         }
 
-        public IEnumerable<Conference> GetAllConferences()
+        public IEnumerable<Talk> GetAllTalks()
         {
-            return _context.Conferences
-                .Include(t => t.Talks)
-                .Include(c => c.ConferenceSpeakers)
-                .ThenInclude(s => s.Speaker)
-                .OrderBy(c => c.Hosted)
+            return _context.Talks
+                .Include(c => c.TalkTags)
+                .OrderBy(c => c.Presented)
                 .ToList();
         }
 
-        public Conference GetConference(int id)
+        public Talk GetTalk(int id)
         {
-            return _context.Conferences
-                .Include(t => t.Talks)
-                .Include(c => c.ConferenceSpeakers)
-                .ThenInclude(s => s.Speaker)
+            return _context.Talks
+                .Include(c => c.TalkTags)
                 .Where(c => c.Id == id)
                 .FirstOrDefault();
         }

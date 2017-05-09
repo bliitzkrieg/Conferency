@@ -37,7 +37,7 @@ namespace Conferency
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ConferencyContext>(ServiceLifetime.Scoped);
-            services.AddScoped<IConferenceRepository, ConferenceRepository>();
+            services.AddScoped<ITalkRepository, TalkRepository>();
 
             services.AddApiVersioning(cfg =>
             {

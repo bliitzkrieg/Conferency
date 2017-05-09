@@ -8,18 +8,12 @@ namespace Conferency.Data
     public class ConferencyContext: DbContext
     {
         public DbSet<Talk> Talks { get; set; }
-        public DbSet<Speaker> Speakers { get; set; }
-        public DbSet<Conference> Conferences { get; set; }
-        public DbSet<ConferenceSpeaker> ConferenceSpeakers { get; set; }
-        public DbSet<SpeakerTalk> SpeakerTalks { get; set; }
+        public DbSet<TalkTag> TagTalks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<SpeakerTalk>()
-                .HasKey(s => new { s.SpeakerId, s.TalkId });
-
-            modelBuilder.Entity<ConferenceSpeaker>()
-                .HasKey(s => new { s.SpeakerId, s.ConferenceId });
+            modelBuilder.Entity<TalkTag>()
+                .HasKey(s => new { s.TalkId, s.TagId });
 
             base.OnModelCreating(modelBuilder);
         }

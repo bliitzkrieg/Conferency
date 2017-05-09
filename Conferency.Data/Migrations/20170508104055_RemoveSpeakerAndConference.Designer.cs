@@ -8,9 +8,10 @@ using Conferency.Data;
 namespace Conferency.Data.Migrations
 {
     [DbContext(typeof(ConferencyContext))]
-    partial class ConferencyContextModelSnapshot : ModelSnapshot
+    [Migration("20170508104055_RemoveSpeakerAndConference")]
+    partial class RemoveSpeakerAndConference
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.0-rtm-22752")

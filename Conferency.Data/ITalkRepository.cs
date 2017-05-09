@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Conferency.Data
 {
-    public interface IConferenceRepository
+    public interface ITalkRepository
     {
         void Add<T>(T entity) where T : class;
         Task<bool> SaveAllAsync();
 
-        IEnumerable<Conference> GetAllConferences();
-        Conference GetConference(int id);
+        IEnumerable<Talk> GetAllTalks();
+        Talk GetTalk (int id);
     }
 }

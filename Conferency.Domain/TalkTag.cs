@@ -4,11 +4,11 @@ using System.Text;
 
 namespace Conferency.Domain
 {
-    public class SpeakerTalk
+    public class TalkTag
     {
-        public int SpeakerId { get; set; }
-        public Speaker Speaker { get; set; }
         public int TalkId { get; set; }
         public Talk Talk { get; set; }
+        public int TagId { get; set; }
+        public Tag Tag { get; set; }
     }
 }

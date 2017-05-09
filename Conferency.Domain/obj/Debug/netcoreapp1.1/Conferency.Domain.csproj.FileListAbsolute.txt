@@ -4,4 +4,3 @@ C:\Users\Luca\dev\conferency\Conferency.Domain\bin\Debug\netcoreapp1.1\Conferenc
 C:\Users\Luca\dev\conferency\Conferency.Domain\obj\Debug\netcoreapp1.1\Conferency.Domain.AssemblyInfo.cs
 C:\Users\Luca\dev\conferency\Conferency.Domain\obj\Debug\netcoreapp1.1\Conferency.Domain.dll
 C:\Users\Luca\dev\conferency\Conferency.Domain\obj\Debug\netcoreapp1.1\Conferency.Domain.pdb
-C:\Users\Luca\dev\conferency\Conferency.Domain\obj\Debug\netcoreapp1.1\Conferency.Domain.csprojResolveAssemblyReference.cache
