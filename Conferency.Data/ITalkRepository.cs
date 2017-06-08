@@ -8,9 +8,10 @@ namespace Conferency.Data
 {
     public interface ITalkRepository
     {
-        void Add<T>(T entity) where T : class;
+        void Add(Talk entity);
         Task<bool> SaveAllAsync();
 
+        void AddWithTags(Talk entity, List<String> tags);
         IEnumerable<Talk> GetAllTalks();
         Talk GetTalk (int id);
     }

@@ -4,11 +4,8 @@ import { Link } from 'react-router';
 export class NavMenu extends React.Component<void, void> {
     public render() {
         return <nav>
-             <Link to={ '/counter' } activeClassName='active'>
-                Counter
-             </Link>
-             <Link to={ '/fetchdata' } activeClassName='active'>
-                Fetch Data
+             <Link to={ '/create' } activeClassName='active'>
+                Create
             </Link>
              <Link to={ '/talks' } activeClassName='active'>
                 Talks

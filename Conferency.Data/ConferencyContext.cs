@@ -8,12 +8,23 @@ namespace Conferency.Data
     public class ConferencyContext: DbContext
     {
         public DbSet<Talk> Talks { get; set; }
+        public DbSet<Tag> Tags { get; set; }
         public DbSet<TalkTag> TagTalks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<TalkTag>()
                 .HasKey(s => new { s.TalkId, s.TagId });
+
+            modelBuilder.Entity<TalkTag>()
+                .HasOne(pt => pt.Talk)
+                .WithMany(p => p.TalkTags)
+                .HasForeignKey(pt => pt.TalkId);
+
+            modelBuilder.Entity<TalkTag>()
+                .HasOne(pt => pt.Tag)
+                .WithMany(t => t.TalkTags)
+                .HasForeignKey(pt => pt.TagId);
 
             base.OnModelCreating(modelBuilder);
         }

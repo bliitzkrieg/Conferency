@@ -5,6 +5,7 @@ using Conferency.Domain;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using System;
+using Conferency.Application.Models;
 
 namespace Conferency.Application.Controllers
 {
@@ -60,17 +61,19 @@ namespace Conferency.Application.Controllers
         }
 
         [HttpPost()]
-        public async Task<IActionResult> Post([FromBody]Talk model)
+        public async Task<IActionResult> Post([FromBody]TalkViewModel model)
         {
             try
             {
                 _logger.LogInformation("Creating a new Talk");
 
-                _repo.Add(model);
+                Talk talk = new Talk { Name = model.Name, Url = model.Url };
+
+                _repo.AddWithTags(talk, model.Tags);
                 if (await _repo.SaveAllAsync())
                 {
-                    string newUri = Url.Link("TalkGet", new { id = model.Id });
-                    return Created(newUri, model);
+                    string newUri = Url.Link("TalkGet", new { id = talk.Id });
+                    return Created(newUri, talk);
                 }
                 else
                 {
