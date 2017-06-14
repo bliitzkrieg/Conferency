@@ -38,6 +38,7 @@ namespace Conferency
         {
             services.AddDbContext<ConferencyContext>(ServiceLifetime.Scoped);
             services.AddScoped<ITalkRepository, TalkRepository>();
+            services.AddScoped<ITagRepository, TagRepository>();
 
             services.AddApiVersioning(cfg =>
             {

@@ -67,7 +67,7 @@ export const actionCreators = {
             axios.post('/api/Talks', {
                 Name,
                 Url,
-                TalkTags: Tags
+                Tags
             })
             .then(response => {
                 dispatch({ type: 'CREATE_TALK_SUCCESSFUL', talk: response.data });

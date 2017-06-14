@@ -1,17 +1,15 @@
 ﻿using Conferency.Domain;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Conferency.Data
 {
-    public interface ITalkRepository
+    public interface ITagRepository
     {
-        void Add<T>(T entity) where T : class;
+        void Add(Tag entity);
         Task<bool> SaveAllAsync();
 
-        IEnumerable<Talk> GetAllTalks();
-        Talk GetTalk (int id);
+        List<Tag> FindOrCreateTags(List<String> tags);
     }
 }

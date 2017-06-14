@@ -26,6 +26,8 @@ namespace Conferency.Data
                 .WithMany(t => t.TalkTags)
                 .HasForeignKey(pt => pt.TagId);
 
+            modelBuilder.Entity<Tag>().ToTable("Tag");
+
             base.OnModelCreating(modelBuilder);
         }
 

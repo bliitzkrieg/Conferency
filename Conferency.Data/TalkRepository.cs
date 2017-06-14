@@ -16,14 +16,9 @@ namespace Conferency.Data
             _context = context;
         }
 
-        public void Add(Talk entity)
+        public void Add<T>(T entity) where T : class
         {
             _context.Add(entity);
-        }
-
-        public void AddWithTags(Talk entity, List<String> tags)
-        {
-            // What to do here.
         }
 
         public IEnumerable<Talk> GetAllTalks()

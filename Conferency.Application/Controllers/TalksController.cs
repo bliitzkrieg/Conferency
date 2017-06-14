@@ -14,11 +14,13 @@ namespace Conferency.Application.Controllers
     {
         private ITalkRepository _repo;
         private ILogger<TalksController> _logger;
+        private ITagRepository _tagRepo;
 
-        public TalksController(ITalkRepository repo, ILogger<TalksController> logger)
+        public TalksController(ITalkRepository repo, ILogger<TalksController> logger, ITagRepository tagRepo)
         {
             _repo = repo;
             _logger = logger;
+            _tagRepo = tagRepo;
         }
 
         [HttpGet("")]
@@ -41,7 +43,7 @@ namespace Conferency.Application.Controllers
 
         [HttpGet("{id}", Name = "TalkGet")]
         public ActionResult Get(int id)
-        {   
+        {
             try
             {
                 _logger.LogInformation($"Getting a Talk with Id of {id}");
@@ -52,7 +54,7 @@ namespace Conferency.Application.Controllers
 
                 return Ok(talk);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError($"Threw exception while getting Talk with id of {id} : {ex}");
             }
@@ -67,9 +69,23 @@ namespace Conferency.Application.Controllers
             {
                 _logger.LogInformation("Creating a new Talk");
 
+                List<Tag> tags = _tagRepo.FindOrCreateTags(model.Tags);
+
                 Talk talk = new Talk { Name = model.Name, Url = model.Url };
 
-                _repo.AddWithTags(talk, model.Tags);
+                List<TalkTag> talkTags = new List<TalkTag>();
+                tags.ForEach(tag =>
+                {
+                    var talkTag = new TalkTag
+                    {
+                        TagId = tag.Id,
+                        Talk = talk
+                    };
+
+                    _repo.Add(talkTag);
+                    talkTags.Add(talkTag);
+                });
+
                 if (await _repo.SaveAllAsync())
                 {
                     string newUri = Url.Link("TalkGet", new { id = talk.Id });
