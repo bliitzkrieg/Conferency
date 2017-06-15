@@ -10,8 +10,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Conferency.Data;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Mvc.Versioning;
+using Conferency.Domain;
 
 namespace Conferency
 {

@@ -25,6 +25,7 @@ namespace Conferency.Data
         {
             return _context.Talks
                 .Include(c => c.TalkTags)
+                .ThenInclude(x => x.Tag)
                 .OrderBy(c => c.Presented)
                 .ToList();
         }
@@ -33,6 +34,7 @@ namespace Conferency.Data
         {
             return _context.Talks
                 .Include(c => c.TalkTags)
+                .ThenInclude(x => x.Tag)
                 .Where(c => c.Id == id)
                 .FirstOrDefault();
         }
