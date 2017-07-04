@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using Conferency.Domain;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace Conferency.Data
 {
@@ -36,6 +38,13 @@ namespace Conferency.Data
             this.timestamps();
 
             return base.SaveChanges();
+        }
+
+        public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            this.timestamps();
+
+            return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
 
         private void timestamps()

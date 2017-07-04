@@ -12,7 +12,7 @@ export class TalkItem extends React.Component<TalkProps, void> {
     public render() {
         const url = `/talk/some-slug/${this.props.talk.id}`;
 
-        const date = moment(this.props.talk.presented).format("dddd, MMMM Do YYYY");
+        const date = moment(this.props.talk.createdAt).format("dddd, MMMM Do YYYY");
 
         return <div className="conference-item">
             <div className="conference-item-photo"></div>
@@ -21,7 +21,7 @@ export class TalkItem extends React.Component<TalkProps, void> {
                     {this.props.talk.name}
                 </Link>
                 <a href={this.props.talk.url}>Video</a>
-                <div>{this.props.talk.tags ? this.props.talk.tags.length : 0} tags</div>
+                <div>{this.props.talk.talkTags ? this.props.talk.talkTags.length : 0} tags</div>
                 <div>{ date }</div>
             </div>
         </div>

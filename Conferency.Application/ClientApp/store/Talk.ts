@@ -14,7 +14,7 @@ export interface Talk {
     id: number;
     name: string;
     url: string;
-    tags: any;
+    talkTags: any;
     presented: string;
     modifiedAt: string;
     createdAt: string;
